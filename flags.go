@@ -13,20 +13,40 @@ type flagList struct {
 }
 
 type optionFlags struct {
-	dbpath       string
-	clean        int
-	nodeps       int
-	groups       int
-	info         int
-	list         string
-	print        bool
-	quiet        bool
-	root         string
-	search       bool
-	sysupgrade   int
-	verbose      bool
-	downloadOnly bool
-	refresh      int
+	dbpath          string
+	clean           int
+	nodeps          int
+	groups          int
+	info            int
+	list            string
+	print           bool
+	quiet           bool
+	root            string
+	search          bool
+	sysupgrade      int
+	verbose         bool
+	downloadOnly    bool
+	refresh         int
+	arch            string
+	asdeps          bool
+	asexplicit      bool
+	assumeInstalled string
+	cachedir        string
+	color           string
+	config          string
+	confirm         bool
+	dbonly          bool
+	debug           bool
+	force           bool
+	gpgdir          string
+	hookdir         string
+	ignoreList      []string
+	ignoreGroupList []string
+	logfile         string
+	needed          bool
+	noconfirm       bool
+	noProgressBar   bool
+	noScriptLet     bool
 }
 
 type syncCommand struct {

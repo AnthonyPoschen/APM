@@ -30,6 +30,28 @@ func configureOptions(app *kingpin.Application, f *flagList) {
 	app.Flag("verbose", "be verbose").Short('v').BoolVar(&f.Options.verbose)
 	app.Flag("downloadonly", "download packages but do not install/upgrade anything").Short('w').BoolVar(&f.Options.downloadOnly)
 	//app.Flag("refresh", "donload fresh package databases from the server\n(-yy to force a refresh even if up to date)").Short('y').CounterVar(&f.Options.refresh)
+	app.Flag("arch", "set an alternate architecture").StringVar(&f.Options.arch)
+	app.Flag("asdeps", "install packages as non-explicitly installed").BoolVar(&f.Options.asdeps)
+	app.Flag("asexplicit", "install packages as explicitly installed").BoolVar(&f.Options.asexplicit)
+	app.Flag("assume-installed", "<package=version>\nadd a virtual package to satisfy dependencies").StringVar(&f.Options.assumeInstalled)
+	app.Flag("cachedir", "set an alternate package cache location").StringVar(&f.Options.cachedir)
+	app.Flag("color", "colorise the output").StringVar(&f.Options.color)
+	app.Flag("config", "set an alternate configuration file").StringVar(&f.Options.config)
+	app.Flag("confirm", "always ask for confirmation").BoolVar(&f.Options.confirm)
+	app.Flag("dbonly", "only modify database entries, not package files").BoolVar(&f.Options.dbonly)
+	app.Flag("debug", "display debug messages").BoolVar(&f.Options.debug)
+	app.Flag("force", "force install, overwrites conflicting files").BoolVar(&f.Options.force)
+	app.Flag("gpgdir", "set an alternate home directory for GnuPG").StringVar(&f.Options.gpgdir)
+	app.Flag("hookdir", "set an alternate hook location").StringVar(&f.Options.hookdir)
+	app.Flag("ignore", "ignore a package upgrade (can be used more than once").StringsVar(&f.Options.ignoreList)
+	app.Flag("ignoregroup", "ignore a group upgrade ( can be used more than once)").StringsVar(&f.Options.ignoreGroupList)
+	app.Flag("logfile", "set an alternate log file").StringVar(&f.Options.logfile)
+	app.Flag("needed", "do not reinstall up to date packages").BoolVar(&f.Options.needed)
+	app.Flag("noconfirm", "do not ask for any confirmation").BoolVar(&f.Options.noconfirm)
+	app.Flag("noprogressbar", "do not show a progress bar when downloading files").BoolVar(&f.Options.noProgressBar)
+	app.Flag("noscriptlet", "do not execute the install scriptlet if one exists").BoolVar(&f.Options.noScriptLet)
+	app.Flag("print-format", "specify how the targets should be printed")
+
 }
 
 func main() {
